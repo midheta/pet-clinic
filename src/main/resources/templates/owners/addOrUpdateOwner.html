@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add owner</title>
+    <th:block th:include="fragments/header::head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/navbar::navbar"></th:block>
+<main>
+
+    <br/>
+    <h2>Owner</h2>
+    <br/>
+    <form th:object="${owner}"  id="add-owner-form" method="post">
+
+        <div class="form-group row">
+            <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" th:field="*{address}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="city" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="city" th:field="*{city}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="telephone" class="col-sm-2 col-form-label">Telephone</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="telephone" th:field="*{phone}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button th:with="text=${owner.isNew()} ? 'Add Owner' : 'Update Owner'"
+                        th:text="${text}"
+                        type="submit" class="btn btn-dark  spring-btn">Add Owner</button>
+            </div>
+        </div>
+
+    </form>
+    <img class="img-spring" src="../static/resources/images/spring-pivotal-logo.png"
+         th:src="@{/resources/images/spring-pivotal-logo.png}"/>
+</main>
+
+</body>
+</html>

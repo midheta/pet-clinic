@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Owners title</title>
+    <th:block th:include="fragments/header::head"></th:block>
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar::navbar"></th:block>
+<main>
+    <h1>Owners</h1>
+    <br>
+    <br>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Pets</th>
+        </tr>
+
+        </thead>
+
+        <tr th:each="owner : ${owners}">
+            <td th:text="${owner.id}"></td>
+            <td th:text="${owner.firstName + ' ' + owner.lastName}"></td>
+            <td th:text="${owner.address}"></td>
+            <td th:text="${owner.city}"></td>
+            <td th:text="${#strings.listJoin(owner.pets,',')}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <img class="img-spring" src="../static/resources/images/spring-pivotal-logo.png"
+         th:src="@{/resources/images/spring-pivotal-logo.png}"/>
+</main>
+</body>
+</html>

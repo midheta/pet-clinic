@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vets page</title>
+    <th:block th:include="fragments/header::head"></th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar::navbar"></th:block>
+<main>
+    <br/>
+    <h1>Veterinarians</h1>
+    <br/>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+        <tr>
+            <th>Name</th>
+            <th>Specialities</th>
+
+        </tr>
+
+        </thead>
+
+        <tr th:each="vet : ${vets}">
+
+            <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+            <td th:text="${#strings.listJoin(vet.specialityList,', ')}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <img class="img-spring" src="../static/resources/images/spring-pivotal-logo.png"
+         th:src="@{/resources/images/spring-pivotal-logo.png}"/>
+</main>
+
+
+</body>
+</html>

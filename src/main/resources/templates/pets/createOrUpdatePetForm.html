@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pets page</title>
+    <th:block th:include="fragments/header::head"></th:block>
+
+</head>
+
+<body>
+
+<th:block th:include="fragments/navbar::navbar"></th:block>
+<main>
+    <br/>
+    <h1 th:with="text = ${pet.isNew()} ? 'New Pet' : 'Pet'"
+        th:text="${text}">New Pet</h1>
+    <br/>
+    <form th:object="${pet}" id="add-owner-form" method="post">
+        <div class="form-group row">
+            <label class="col-sm-2 control-label">Owner</label>
+            <div class="col-sm-10">
+                <span th:text="${pet.owner.firstName + ' ' + pet.owner.lastName}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" th:field="*{name}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="birthday"  th:value="*{birthDate}"
+                       th:field="*{birthDate}"
+                       placeholder="YYYY-MM-DD" title="Enter a date in this format: YYYY-MM-DD"
+                       pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"/>
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-2">
+                <select th:field="*{petType}">
+                    <option th:each="type : ${types}" th:value="${type.id}"
+                            th:text="${type.description}"
+                    th:selected="${pet.petType != null}">dog</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button th:with="text=${pet.isNew()} ? 'Add Pet' : 'Update Pet'"
+                    th:text="${text}"
+                    type="submit" class="btn btn-dark  spring-btn">Add Pet
+            </button>
+        </div>
+
+
+    </form>
+
+    <img class="img-spring" src="../static/resources/images/spring-pivotal-logo.png"
+         th:src="@{/resources/images/spring-pivotal-logo.png}"/>
+</main>
+
+
+</body>
+</html>

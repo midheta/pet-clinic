@@ -1,0 +1,80 @@
+nav.custom-nav {
+    background-color: #6db33f;
+    padding-top: 5px;
+}
+
+nav.custom-nav > div:first-child {
+    background-color: #3a3232;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0 150px;
+}
+
+nav.custom-nav .img-container {
+    align-items: center;
+    display: flex;
+}
+
+nav.custom-nav ul {
+    align-items: stretch;
+    display: flex;
+    margin: 0;
+}
+
+nav.custom-nav ul li {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 0 15px;
+}
+
+nav.custom-nav ul li:hover {
+    background-color: #6db33f;
+}
+
+nav.custom-nav ul li a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+nav.custom-nav ul li a:hover {
+    color: white;
+}
+
+nav .active {
+    background-color: #6db33f;
+}
+
+nav .inactive {
+    background-color: #3a3232;
+}
+
+main {
+    padding: 0 150px;
+    background-color: #f1f1f1;
+    height: 100%;
+    min-height: 100%;
+    overflow: auto;
+}
+
+
+main img {
+    margin-top: 15px;
+}
+
+main .img-spring {
+    margin: 50px auto 0 auto;
+    display: block;
+}
+
+main .spring-btn {
+    margin-left: 50px;
+    display: block;
+}
+
+html, body {
+    overflow: auto;
+    height: 100vh;
+}
